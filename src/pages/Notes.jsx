@@ -5,6 +5,39 @@ const Notes = () => {
   const [isQuestion, setIsQuestion] = useState(null);
   const [isSection, setIsSection] = useState(null);
   const [isUnit, setIsUnit] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleDownload = async (pdfLink, fileName) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(pdfLink);
+      if (!response.ok) throw new Error("PDF not found");
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = fileName;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("Error downloading PDF:", error);
+      alert("Unable to download PDF. Please try again later.");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handlePreview = (pdfLink, title) => {
+    try {
+      window.open(pdfLink, "_blank");
+    } catch (error) {
+      console.error("Error opening PDF:", error);
+      alert("Unable to preview PDF. Please try downloading instead.");
+    }
+  };
   // Function to toggle the active question
   const toggleQuestion = (questionId) => {
     setIsQuestion(isQuestion === questionId ? null : questionId);
@@ -35,7 +68,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -62,7 +95,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -89,7 +122,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -116,7 +149,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -143,7 +176,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -170,7 +203,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -203,7 +236,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -230,7 +263,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -257,7 +290,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -284,7 +317,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -311,7 +344,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -338,7 +371,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -371,7 +404,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -398,7 +431,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -425,7 +458,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -452,7 +485,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -479,7 +512,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -506,7 +539,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -539,7 +572,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -566,7 +599,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -593,7 +626,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -620,7 +653,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -647,7 +680,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -674,7 +707,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -707,7 +740,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -734,7 +767,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -761,7 +794,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -788,7 +821,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -815,7 +848,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -842,7 +875,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -875,7 +908,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -902,7 +935,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -929,7 +962,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -956,7 +989,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -983,7 +1016,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1010,7 +1043,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1043,7 +1076,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1070,7 +1103,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1097,7 +1130,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1124,7 +1157,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1151,7 +1184,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1178,7 +1211,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1211,7 +1244,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1238,7 +1271,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1265,7 +1298,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1292,7 +1325,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1319,7 +1352,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1346,7 +1379,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1379,7 +1412,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1406,7 +1439,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1433,7 +1466,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1460,7 +1493,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1487,7 +1520,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1514,7 +1547,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1547,7 +1580,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1574,7 +1607,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1602,7 +1635,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1629,7 +1662,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1656,7 +1689,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1683,7 +1716,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1716,7 +1749,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/pdf/CA/1st sem.pdf",
             },
             {
               id: 2,
@@ -1743,7 +1776,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1770,7 +1803,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1797,7 +1830,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1824,7 +1857,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1851,7 +1884,7 @@ const Notes = () => {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              link: "/notes",
+              pdfLink: "/notes",
             },
             {
               id: 2,
@@ -1960,19 +1993,22 @@ const Notes = () => {
                                   <button
                                     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition-colors"
                                     onClick={() =>
-                                      window.open(unit.pdfLink, "_blank")
+                                      handlePreview(
+                                        unit.pdfLink,
+                                        `${section.title}_${q.question}_${unit.title}`
+                                      )
                                     }
                                   >
                                     Preview
                                   </button>
                                   <button
                                     className="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 transition-colors"
-                                    onClick={() => {
-                                      const link = document.createElement("a");
-                                      link.href = unit.pdfLink;
-                                      link.download = `${section.title}_${q.question}_${unit.title}.pdf`;
-                                      link.click();
-                                    }}
+                                    onClick={() =>
+                                      handleDownload(
+                                        unit.pdfLink,
+                                        `${section.title}_${q.question}_${unit.title}.pdf`
+                                      )
+                                    }
                                   >
                                     Download
                                   </button>
