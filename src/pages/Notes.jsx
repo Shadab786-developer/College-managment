@@ -562,7 +562,7 @@ const Notes = () => {
     },
     {
       id: 4,
-      title: " DEPARTMENT OF Physics",
+      title: " DEPARTMENT OF PHYSICS",
       questions: [
         {
           id: 14,
