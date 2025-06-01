@@ -12,13 +12,26 @@ import "./index.css";
 import Layout from "./Layout";
 import Home from "./pages/Home";
 import Notes from "./pages/Notes";
+import Aboutus from "./pages/Aboutus/Aboutus";
+import Noticeboard from "./pages/Noticeboard";
+import Gallery from "./pages/Gallery";
+import Contactus from "./pages/Contactus";
+import Syllabus from "./pages/syllabus";
+import Question from "./pages/Question";
 
 // Create the router with routes for different components
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
-      <Route path="/" element={<Home />} />
+      <Route path="" element={<Home />} />
       <Route path="/notes" element={<Notes />} />
+      <Route path="/aboutus" element={<Aboutus />} />
+      <Route path="/noticeboard" element={<Noticeboard />} />
+      <Route path="/gallery" element={<Gallery />} />
+      <Route path="/gallery/:section" element={<Gallery />} />
+      <Route path="/contactus" element={<Contactus />} />
+      <Route path="/syllabus" element={<Syllabus />} />
+      <Route path="/questionpaper" element={<Question />} />
     </Route>
   )
 );
