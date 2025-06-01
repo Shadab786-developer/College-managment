@@ -16,7 +16,7 @@ import Aboutus from "./pages/Aboutus/Aboutus";
 import Noticeboard from "./pages/Noticeboard";
 import Gallery from "./pages/Gallery";
 import Contactus from "./pages/Contactus";
-import Syllabus from "./pages/syllabus";
+import Syllabus from "./pages/Syllabus";
 import Question from "./pages/Question";
 
 // Create the router with routes for different components
