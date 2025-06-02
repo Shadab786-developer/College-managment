@@ -40,7 +40,7 @@ function Noticeboard() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+      <div className="max-w-7xl mx-auto sm:mt-[250px] mt-[240px]">
         <h1 className="text-3xl font-bold text-green-800 mb-8">Notice Board</h1>
 
         {/* Category Filter */}

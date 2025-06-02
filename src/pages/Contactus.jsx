@@ -31,8 +31,8 @@ function ContactUs() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
+    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 ">
+      <div className="max-w-7xl mx-auto sm:mt-[500px] mt-[250px] sm:mb-[100px] mb-[50px]">
         <div className="grid md:grid-cols-2 gap-10">
           {/* Contact Information */}
           <motion.div
@@ -53,9 +53,9 @@ function ContactUs() {
                   Address
                 </h3>
                 <p className="text-gray-600">
-                  123 College Street
+                  Sarkanda Bilaspur, Chhattisgarh
                   <br />
-                  City, State 12345
+                  Pin Code - 495001
                 </p>
               </div>
 
@@ -64,9 +64,9 @@ function ContactUs() {
                   Phone
                 </h3>
                 <p className="text-gray-600">
-                  Main: (555) 123-4567
+                  Main: 07752-246430
                   <br />
-                  Toll-free: 1-800-123-4567
+                  Mo.no : 6262111471 , 6262066972
                 </p>
               </div>
 
@@ -74,17 +74,18 @@ function ContactUs() {
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   Email
                 </h3>
-                <p className="text-gray-600">info@college.edu</p>
+                <p className="text-gray-600">
+                  {" "}
+                  pr[dot]sc[dot]college[at]gmail[dot]com
+                </p>
               </div>
 
               <div>
                 <h3 className="text-lg font-semibold text-gray-800 mb-2">
-                  Office Hours
+                  College Hours
                 </h3>
                 <p className="text-gray-600">
-                  Monday - Friday: 9:00 AM - 5:00 PM
-                  <br />
-                  Saturday: 9:00 AM - 1:00 PM
+                  Monday - Saturday: 10:00 AM - 5:00 PM
                 </p>
               </div>
             </div>

@@ -101,23 +101,23 @@ function Gallery() {
         className={`bg-white rounded-lg shadow-md overflow-hidden 
                      `}
       >
-        <div className="flex justify-center items-center mt-10 gap-7 flex-wrap">
+        <div className="flex justify-center items-center  gap-7 flex-wrap sm:mt-[300px] mt-[250px] sm:mb-[100px] mb-[50px]">
           {Object.entries(galleryData).map(([key, data]) => (
             <div
               key={key}
-              className="bg-green-800 w-[420px] rounded-lg border-2 h-[600px] mt-3 flex justify-center items-center flex-col "
+              className="bg-green-800 sm:w-[420px] rounded-lg border-2 sm:h-[600px] w-[220px] h-[350px] mt-3 flex justify-center items-center flex-col  "
             >
               <img
                 src={data.images[0]}
                 alt={data.title}
-                className="h-[380px] w-[380px] rounded-lg"
+                className="sm:h-[380px] sm:w-[380px] h-[150px] w-[200px] rounded-lg"
               />
-              <span className="text-3xl text-white font-semibold mt-7 text-center">
+              <span className="sm:text-3xl text-xl text-white font-semibold mt-7 text-center">
                 {data.title}
               </span>
               <Link
                 to={`/gallery/${key}`}
-                className="text-2xl text-black rounded-lg px-4 py-2 font-semibold bg-white mt-9"
+                className="sm:text-2xl text-[15px] text-black rounded-lg px-4 py-2 font-semibold bg-white mt-9"
               >
                 View gallery
               </Link>
@@ -147,10 +147,10 @@ function Gallery() {
 
   return (
     <div className="p-8">
-      <h1 className="text-4xl font-semibold mb-8">{sectionData.title}</h1>
+      <h1 className="text-4xl font-semibold mb-8 ">{sectionData.title}</h1>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 "
         variants={founderContainer}
         initial="hidden"
         whileInView="show"

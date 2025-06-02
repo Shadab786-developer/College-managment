@@ -2,7 +2,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="w-screen bg-white ">
+    <footer className="w-auto bg-green-800 ">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 ">
         {/* Desktop Layout */}
         <div className="flex flex-col">
@@ -18,15 +18,12 @@ function Footer() {
             <div className="grid grid-cols-2 gap-8 md:grid-cols-3">
               {/* Left Column */}
               <div className="space-y-4">
-                <a
-                  href="#"
-                  className="block text-[#00046C] hover:text-opacity-80"
-                >
+                <a href="#" className="block text-white hover:text-opacity-80">
                   About Us
                 </a>
                 <a
                   href="/blog"
-                  className="block text-[#00046C] hover:text-opacity-80"
+                  className="block text-white hover:text-opacity-80"
                 >
                   Gallery
                 </a>
@@ -36,7 +33,7 @@ function Footer() {
               <div className="space-y-4">
                 <a
                   href="/registration"
-                  className="block text-[#00046C] hover:text-opacity-80"
+                  className="block text-white hover:text-opacity-80"
                 >
                   Notice Board
                 </a>
@@ -44,7 +41,7 @@ function Footer() {
                   href="https://www.linkedin.com/newsletters/7185962989202669569/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block text-[#00046C] hover:text-opacity-80"
+                  className="block text-white hover:text-opacity-80"
                 >
                   Contact Us
                 </a>
@@ -57,7 +54,7 @@ function Footer() {
                     href="https://www.linkedin.com/company/recrutorycompany/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-[#00046C] hover:text-opacity-80"
+                    className="flex items-center space-x-2 text-white hover:text-opacity-80"
                   >
                     <img
                       src="./assets/image 213.png"
@@ -67,13 +64,13 @@ function Footer() {
                     <span>LinkedIn</span>
                   </a>
                   <a
-                    href="https://www.instagram.com/verbiq.ai/?igsh=YjJ1Z2V1aTV2d2Vq#"
+                    href="https://www.instagram.com/science_college_bilaspur?igsh=MWVrc3l4YXMzaDJyMg=="
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-2 text-[#00046C] hover:text-opacity-80"
+                    className="flex items-center space-x-2 text-white hover:text-opacity-80"
                   >
                     <img
-                      src="./assets/image 214.png"
+                      src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
                       alt="Instagram"
                       className="h-6 w-6"
                     />
@@ -85,10 +82,8 @@ function Footer() {
 
             {/* Contact Info */}
             <div className="space-y-2 col-span-1 sm:-mt-2">
-              <div className="block text-[#00046C] font-medium">9373902340</div>
-              <div className="block text-[#00046C] font-medium">
-                hr@verbiq.ai
-              </div>
+              <div className="block text-white font-medium">9373902340</div>
+              <div className="block text-white font-medium">hr@verbiq.ai</div>
             </div>
           </div>
 

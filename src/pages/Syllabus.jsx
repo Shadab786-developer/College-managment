@@ -1937,7 +1937,7 @@ function Syllabus() {
             opacity: 0.1,
           }}
         />
-        <div className="relative z-10 py-16 md:py-24 px-4">
+        <div className="relative z-10 py-16 md:py-24 px-4 sm:mt-[200px] mt-[300px]">
           <div className="container mx-auto text-center">
             <motion.h1
               initial={{ opacity: 0, y: -20 }}

@@ -1,7 +1,7 @@
 export default function PurposeSection() {
   return (
     <section className="bg-[#F8FAFF]   py-16 px-4 text-center">
-      <div className="max-w-5xl mx-auto pt-14">
+      <div className="max-w-5xl mx-auto pt-14 sm:mt-[200px] mt-[150px]">
         <h2 className="text-lg font-semibold text-black">
           Every Assessment, Every Insight, Every Hire, Made With Purpose
         </h2>
