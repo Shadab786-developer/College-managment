@@ -1,12 +1,23 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBook, FaDownload, FaEye, FaChevronDown } from "react-icons/fa";
+import {
+  FaBook,
+  FaDownload,
+  FaEye,
+  FaChevronDown,
+  FaFileUpload,
+} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 function Syllabus() {
   const [isQuestion, setIsQuestion] = useState(null);
   const [isSection, setIsSection] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const isAdmin = localStorage.getItem("role");
+
+  const navigate = useNavigate();
 
   const handleDownload = async (pdfLink, fileName) => {
     setIsLoading(true);
@@ -29,6 +40,10 @@ function Syllabus() {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleUpload = () => {
+    navigate("/upload");
   };
 
   const handlePreview = (pdfLink, title) => {
@@ -83,7 +98,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -108,24 +123,9 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "ITDSC-2 [Programming in C++]",
+              content: "Programming in C++",
+              pdfLink: "/pdf/IT/2nd sem syllabus ITSC -2.pdf",
             },
           ],
         },
@@ -135,24 +135,15 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "ITDSC-3 [Operating System]",
+              content: "Operating System",
+              pdfLink: "/pdf/IT/3rd sem syllabus ITSC - 3.pdf",
             },
             {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              id: 1,
+              title: "ITSE-1 [Digital Electronics]",
+              content: "Digital Electronics",
+              pdfLink: "/pdf/IT/3rd sem syllabus ITSE - 1.pdf",
             },
           ],
         },
@@ -162,24 +153,15 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "ITDSC-4 [Data Structure]",
+              content: "Data Structure",
+              pdfLink: "/pdf/IT/4th sem syllabus ITSC - 4.pdf",
             },
             {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              id: 1,
+              title: "ITSE-1 [Multimedia]",
+              content: "Multimedia",
+              pdfLink: "/pdf/IT/4th sem syllabus ITSE - 2.pdf",
             },
           ],
         },
@@ -189,24 +171,21 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "ITDSC-5 [Data Communication & Networking]",
+              content: "Data Communication & Networking",
+              pdfLink: "/pdf/IT/5th sem syllabus ITSC - 5.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
+              title: "ITSE-2 [Software Engeneering]",
+              content: "Software Engeneering",
+              pdfLink: "/pdf/IT/5th sem syllabus ITSE - 4.pdf",
             },
             {
               id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "ITSE - 4 [JAVA]",
+              content: "JAVA",
+              pdfLink: "/pdf/IT/5th sem syllabus ITSE - 3.pdf",
             },
           ],
         },
@@ -216,26 +195,22 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: `DSC
-              CORE  `,
+              title: `ITDSC-6  [RDBMS]`,
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/pdf/IT/6th sem syllabus ITSC - 6.pdf",
             },
             {
               id: 2,
-              title: "DSE - 1",
+              title: "ITSE - 5 [Web Technology]",
               content: "Web Technology",
+              pdfLink: "/pdf/IT/6th sem syllabus ITSE - 5.pdf",
             },
             {
               id: 3,
-              title: "DSE - 2",
+              title: "DSE - 2 [Advance Trends in IT]",
               content: "Advance Trends in IT",
+              pdfLink: "/pdf/IT/6th sem syllabus ITSE - 6.pdf",
             },
-            // {
-            //   id: 4,
-            //   title: "Unit 4",
-            //   content: "Unit 4 content goes here",
-            // },
           ],
         },
       ],
@@ -250,24 +225,9 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "CSSC - 1 [Computer Fundamentals & PC Package]",
+              content: "Computer Fundamentals & PC Package",
+              pdfLink: "/pdf/CS/1st sem syllabus CSSC - 1.pdf",
             },
           ],
         },
@@ -277,24 +237,9 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "CSSC - 2 [Programming Methodology in 'C']",
+              content: "Programming Methodology in 'C'",
+              pdfLink: "/pdf/CS/2nd sem syllabus CSSC - 2.pdf",
             },
           ],
         },
@@ -304,24 +249,15 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "CSSC - 3 [Computer System Architecture]",
+              content: "Computer System Architecture",
+              pdfLink: "/pdf/CS/3rd sem syllabus CSSC - 3.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "CSSE - 1 [Computer Networks]",
+              content: "Computer Networks",
+              pdfLink: "/pdf/CS/3rd sem syllabus CSSE - 1.pdf",
             },
           ],
         },
@@ -331,24 +267,15 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "CSSC - 4 [Object Oriented Programming]",
+              content: "Object Oriented Programming",
+              pdfLink: "/pdf/CS/4th sem syllabus CSSC - 4.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "CSSE - 2 [Internet Technologies]",
+              content: "Internet Technologies",
+              pdfLink: "/pdf/CS/4th sem syllabus CSSE - 2.pdf",
             },
           ],
         },
@@ -358,24 +285,14 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "CSSC - 5 [Operating System]",
+              content: "Operating System",
+              pdfLink: "/pdf/CS/5th sem syllabus CSSC - 5.pdf",
             },
             {
               id: 2,
               title: "Unit 2",
               content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
             },
           ],
         },
@@ -385,24 +302,14 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "CSSC - 6 [Relational Database Management System]",
+              content: "Relational Database Management System",
+              pdfLink: "/pdf/CS/6th sem syllabus CSSC - 6.pdf",
             },
             {
               id: 2,
               title: "Unit 2",
               content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
             },
           ],
         },
@@ -418,24 +325,9 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "MSC-1 [Calculas]",
+              content: "Calculas",
+              pdfLink: "/pdf/MATHS/1st sem syllabus MSC - 1.pdf",
             },
           ],
         },
@@ -445,24 +337,9 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "MSC-2 [Algebra]",
+              content: "Algebra",
+              pdfLink: "/pdf/MATHS/2nd sem syllabus MSC - 2.pdf",
             },
           ],
         },
@@ -472,24 +349,15 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "MSC-3 [Differential Equations]",
+              content: "Differential Equations",
+              pdfLink: "/pdf/MATHS/3rd sem syallabus MSC - 3.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "MSE-1 [Advance Calculas]",
+              content: "Advance Calculas",
+              pdfLink: "/pdf/MATHS/3rd sem syallabus MSE - 1.pdf",
             },
           ],
         },
@@ -499,24 +367,15 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "MSC-4",
+              content: "Real Analysis",
+              pdfLink: "/pdf/MATHS/4th sem syllabus MSC - 4.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "MSE-2 [Mechanics]",
+              content: "Machanics",
+              pdfLink: "/pdf/MATHS/4th sem syllabus MSE - 2.pdf",
             },
           ],
         },
@@ -526,24 +385,20 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "MSC-5 [Linear Algebra]",
+              content: "Linear Algebra",
+              pdfLink: "/pdf/MATHS/5th sem syllabus MSC - 5.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
+              title: "MSE-3 [Complex Analysis]",
+              content: "Complex Analysis",
+              pdfLink: "/pdf/MATHS/5th sem syllabus MSE - 3.pdf",
             },
             {
               id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "MSE-4 [Discrete Mathematics",
+              pdfLink: "/pdf/MATHS/5th sem syllabus MSE - 4.pdf",
             },
           ],
         },
@@ -553,24 +408,21 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "MSC-6 [Metric Space]",
+              content: "Metric Space",
+              pdfLink: "/pdf/MATHS/6th sem syllabus MSC - 6.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
+              title: "MSE-5 [Special Function]",
+              content: "Special Function",
+              pdfLink: "/pdf/MATHS/6th sem syllabus MSE - 5.pdf",
             },
             {
               id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "MSE-6 [Graph Theory]",
+              content: "Graph Theory",
+              pdfLink: "/pdf/MATHS/6th sem syllabus MSE - 6.pdf",
             },
           ],
         },
@@ -586,24 +438,9 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "PSC-1 [Mechanics]",
+              content: "Machanics",
+              pdfLink: "/pdf/PHYSICS/1st sem syllabus PSC - 1.pdf",
             },
           ],
         },
@@ -613,24 +450,8 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "PSC-2 [Electricity and Magnetism]",
+              pdfLink: "/pdf/PHYSICS/2nd sem syllabus PSC - 2.pdf",
             },
           ],
         },
@@ -640,24 +461,15 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "PSC-3 [Thermal Physics & Statistical Mechanics]",
+              content: "Thermal Physics  & Statistical Mechanics",
+              pdfLink: "/pdf/PHYSICS/3rd sem syllabus PSC - 3.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "PSE-1 [Analog Circuit & Instrumentation]",
+              content: "Analog Circuit & Instrumentation",
+              pdfLink: "/pdf/PHYSICS/3rd sem syllabus PSE- 1.pdf",
             },
           ],
         },
@@ -667,24 +479,15 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "PSC-4 [Wave & Optics]",
+              content: "Wave & Optics",
+              pdfLink: "/pdf/PHYSICS/4th sem syllabus PSC - 4.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "PSE-2 [Fundamentals Of Modern Physics]",
+              content: "Fundamentals Of Modern Physics",
+              pdfLink: "/pdf/PHYSICS/4th sem syllabus PSE - 2.pdf",
             },
           ],
         },
@@ -694,24 +497,21 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "PSC-5 [Modern Physics]",
+              content: "Modern Physics",
+              pdfLink: "/pdf/PHYSICS/5th sem syllabus PSC - 5.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
+              title: "PSE-3 [Clacical Mechanics]",
+              content: "Clacical Mechanics",
+              pdfLink: "/pdf/PHYSICS/5th sem syllabus PSE - 3.pdf",
             },
             {
               id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "PSE-4 [Biophysics]",
+              content: "Biophysics",
+              pdfLink: "/pdf/PHYSICS/5th sem syllabus PSE - 4.pdf",
             },
           ],
         },
@@ -721,24 +521,21 @@ function Syllabus() {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
-              pdfLink: "/notes",
+              title: "PSC-6 [Solid State Physics]",
+              content: "Solid State Physics",
+              pdfLink: "/pdf/PHYSICS/6th sem syllabus PSC - 6.pdf",
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
+              title: "PSE-5 [Mathematical Physics]",
+              content: "Mathematical Physics",
+              pdfLink: "/pdf/PHYSICS/6th sem syllabus PSE - 5.pdf",
             },
             {
               id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
+              title: "PSE-6 [Nuclear & Particle Physics]",
+              content: "Nuclear & Particle Physics",
+              pdfLink: "/pdf/PHYSICS/6th sem Syllabus PSE - 6.pdf",
             },
           ],
         },
@@ -756,7 +553,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -783,7 +580,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -810,7 +607,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -837,7 +634,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -864,7 +661,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -891,7 +688,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -924,7 +721,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -951,7 +748,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -978,7 +775,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1005,7 +802,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1032,7 +829,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1059,7 +856,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1092,7 +889,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1119,7 +916,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1146,7 +943,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1173,7 +970,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1200,7 +997,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1227,7 +1024,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1260,7 +1057,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1287,7 +1084,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1314,7 +1111,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1341,7 +1138,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1368,7 +1165,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1395,7 +1192,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1428,7 +1225,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1455,7 +1252,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1482,7 +1279,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1509,7 +1306,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1536,7 +1333,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1563,7 +1360,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1596,7 +1393,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -1623,7 +1420,7 @@ function Syllabus() {
               id: 1,
               title: "DSC",
               content: "RDBMS",
-              pdfLink: "/notes",
+              pdfLink: "/notfound",
             },
             {
               id: 2,
@@ -2098,6 +1895,19 @@ function Syllabus() {
                                               ? "Downloading..."
                                               : "Download"}
                                           </button>
+                                          {isAdmin === "admin" ? (
+                                            <button
+                                              onClick={handleUpload}
+                                              className="flex items-center px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-950 transition-colors"
+                                            >
+                                              <FaFileUpload className="mr-2" />
+                                              {isLoading
+                                                ? "Uploading..."
+                                                : "Upload"}
+                                            </button>
+                                          ) : (
+                                            ""
+                                          )}
                                         </div>
                                       </div>
                                       {/* ))} */}

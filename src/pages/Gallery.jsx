@@ -150,11 +150,11 @@ function Gallery() {
       <h1 className="text-4xl font-semibold mb-8 ">{sectionData.title}</h1>
 
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 "
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:mt-[200px]"
         variants={founderContainer}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ amount: 0.1 }}
       >
         {sectionData.images.map((image, index) => (
           <motion.div
@@ -162,7 +162,7 @@ function Gallery() {
             key={index}
             variants={founderCardVariant}
             whileHover={{
-              scale: 1.03,
+              scale: 1.09,
               transition: { type: "spring", stiffness: 300 },
             }}
           >

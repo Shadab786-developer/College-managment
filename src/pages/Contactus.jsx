@@ -32,7 +32,7 @@ function ContactUs() {
 
   return (
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8 ">
-      <div className="max-w-7xl mx-auto sm:mt-[500px] mt-[250px] sm:mb-[100px] mb-[50px]">
+      <div className="max-w-7xl mx-auto sm:mt-[300px] mt-[250px] sm:mb-[100px] mb-[50px]">
         <div className="grid md:grid-cols-2 gap-10">
           {/* Contact Information */}
           <motion.div

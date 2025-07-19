@@ -14,18 +14,18 @@ export default function Header() {
   };
   return (
     <>
-      <div className="fixed bg-white w-full z-[9999]">
+      <div className="fixed w-full z-[9999] bg-white">
         <div className="sm:h-32 h-34 z-auto">
           <motion.div
-            initial={{ y: 100, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 2, ease: "easeOut" }}
+            initial={{ y: -100, opacity: 0 }}
+            animate={{ y: 0, opacity: 3 }}
+            transition={{ duration: 3, ease: "easeOut" }}
           >
             <div className="flex justify-center items-center py-10">
               <div className="bg-transparent w-38 h-20 px-4">
                 <a href="#">
                   <img
-                    src="./assets/college-logo.png"
+                    src="\assets\college-logo.png"
                     alt="college-logo"
                     className="w-full h-fit object-contain bg-transparent "
                   />
@@ -42,7 +42,7 @@ export default function Header() {
             </div>
           </motion.div>
         </div>
-        <header className="flex justify-center items-center  bg-green-800 shadow-sm mb-1 h-20 w-full z-[9999] mt-8">
+        <header className="flex justify-center items-center  bg-green-800 h-20 w-full z-[9999] mt-8">
           <button
             className="md:hidden absolute left-4 text-white p-2"
             onClick={toggleMenu}

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import TypeWriter from "./TypeWritter";
 import { FaGraduationCap, FaBook, FaUniversity } from "react-icons/fa";
@@ -7,7 +7,7 @@ import { FaGraduationCap, FaBook, FaUniversity } from "react-icons/fa";
 function Home() {
   const [isVisible, setIsVisible] = useState(-1);
   const [currentSlide, setCurrentSlide] = useState(0);
-  // ...existing state and effects...
+  const Navigate = useNavigate();
 
   const heroImages = [
     "/assets/img5.jpg",
@@ -74,20 +74,20 @@ function Home() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 1 }}
-            className="absolute inset-0 sm:mt-[240px]"
+            className="absolute inset-0 md:mt-[240px] mt-[250px]"
           >
             <div className="absolute inset-0 bg-black/50 z-10"></div>
             <img
               src={heroImages[currentSlide]}
               alt="College"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-center "
             />
           </motion.div>
         </AnimatePresence>
 
         {/* Hero Content */}
         <div className="relative z-20 h-full container mx-auto px-4">
-          <div className="h-full flex flex-col justify-center items-center md:items-start">
+          <div className="h-full flex flex-col justify-center items-center md:items-start mt-[90px]">
             {/* Main Content */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -102,14 +102,15 @@ function Home() {
                 #1 Government Science College
               </motion.div>
 
-              <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
-                <TypeWriter text="Welcome to" delay={50} />
+              <h1 className="sm:text-5xl text-3xl md:text-7xl font-bold text-white mb-6">
+                <TypeWriter text="Welcome to" delay={70} />
               </h1>
 
-              <h2 className="text-3xl md:text-5xl font-bold text-green-400 mb-8">
+              <h2 className="sm:text-3xl text-xl md:text-5xl font-bold text-green-400 mb-8">
                 <TypeWriter
                   text="GOVT. E RAGHAVENDRA RAO P.G SCIENCE COLLEGE"
-                  delay={50}
+                  speed={500}
+                  delay={60}
                 />
               </h2>
 
@@ -119,20 +120,23 @@ function Home() {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -20 }}
-                  className="text-xl md:text-2xl text-white mb-8"
+                  className="text-[15px] md:text-2xl text-white mb-8"
                 >
                   {heroTexts[currentSlide]}
                 </motion.p>
               </AnimatePresence>
 
               {/* CTA Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+              <div className="sm:flex hidden flex-col sm:flex-row gap-4 justify-center md:justify-start">
                 <motion.button
                   whileHover={{ scale: 1.05, backgroundColor: "#fff" }}
                   whileTap={{ scale: 0.95 }}
-                  className="px-8 py-4 bg-green-500 text-white rounded-full font-semibold 
+                  className="px-8 py-4  hidden bg-green-500 text-white rounded-full font-semibold 
                            hover:bg-white hover:text-green-600 transition-all duration-300
-                           flex items-center justify-center gap-2"
+                           sm:flex items-center justify-center gap-2"
+                  onClick={() => {
+                    Navigate("/notfound");
+                  }}
                 >
                   <FaGraduationCap className="text-xl" />
                   Explore Programs
@@ -145,7 +149,10 @@ function Home() {
                   whileTap={{ scale: 0.95 }}
                   className="px-8 py-4 border-2 border-white text-white rounded-full 
                            font-semibold hover:bg-white/10 transition-all duration-300
-                           flex items-center justify-center gap-2"
+                           sm:flex  items-center justify-center gap-2"
+                  onClick={() => {
+                    Navigate("/notfound");
+                  }}
                 >
                   <FaUniversity className="text-xl" />
                   Virtual Campus Tour
@@ -158,7 +165,7 @@ function Home() {
               initial={{ opacity: 0, y: 50 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.5 }}
-              className="absolute bottom-10 left-0 right-0 flex justify-center gap-8"
+              className="absolute sm:bottom-30 mt-96 sm:mt-0 left-0 right-0 flex justify-center sm:gap-8 gap-3"
             >
               {[
                 { icon: FaGraduationCap, number: "11+", label: "Departments" },
@@ -171,11 +178,13 @@ function Home() {
                   className="bg-white/10 backdrop-blur-md p-6 rounded-xl text-center
                            border border-white/20"
                 >
-                  <stat.icon className="text-3xl text-green-400 mx-auto mb-2" />
-                  <h3 className="text-3xl font-bold text-white">
-                    {stat.number}
-                  </h3>
-                  <p className="text-green-200">{stat.label}</p>
+                  <Link to={"/notfound"}>
+                    <stat.icon className="sm:text-3xl text-xl text-green-400 mx-auto mb-2" />
+                    <h3 className="sm:text-3xl text-[15px] font-bold text-white">
+                      {stat.number}
+                    </h3>
+                    <p className="text-green-200">{stat.label}</p>
+                  </Link>
                 </motion.div>
               ))}
             </motion.div>
@@ -183,7 +192,7 @@ function Home() {
         </div>
 
         {/* Slide Indicators */}
-        <div className="absolute bottom-4 right-4 z-30 flex gap-2">
+        <div className="absolute bottom-4 right-4 z-30 lg:flex hidden gap-2">
           {heroImages.map((_, index) => (
             <button
               key={index}
@@ -205,108 +214,108 @@ function Home() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
           viewport={{ once: true }}
-          className={`bg-white rounded-lg shadow-md overflow-hidden 
+          className={`bg-transparent rounded-lg shadow-md overflow-hidden 
                `}
         >
-          <div className="pt-4 pr-4">
-            <Link to={"/notes"}>
+          <Link to={"/notes"}>
+            <div className="sm:py-4 sm:px-4 pr-2 pl-1 py-2.5">
               <h3 className="text-2xl text-green-950 font-[alibi] font-semibold">
                 Notes
               </h3>
-            </Link>
-            <hr className="text-green-800" />
-            <div className="bg-green-100 sm:w-[400px] rounded-lg border-2 sm:h-[400px] w-[300px] h-[300px] mt-3 text-nowrap ">
-              <ul className="space-y-2 p-5">
-                {departments.map((dept, index) => (
-                  <li
-                    key={dept}
-                    className={`transform transition-all duration-300 ease-out ${
-                      index <= isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
-                  >
-                    <div className="hover:bg-green-200 rounded transition-colors font-semibold text-[11px] sm:text-[16px]">
-                      <span className="text-green-800 mr-1">•</span>
-                      <span>{dept}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <hr className="text-green-800" />
+              <div className="bg-green-100 sm:w-[400px] rounded-lg border-2 sm:h-[400px] w-[300px] h-[300px] mt-3 text-nowrap ">
+                <ul className="space-y-2 p-5">
+                  {departments.map((dept, index) => (
+                    <li
+                      key={dept}
+                      className={`transform transition-all duration-300 ease-out ${
+                        index <= isVisible
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-10"
+                      }`}
+                    >
+                      <div className="hover:bg-green-200 rounded transition-colors font-semibold text-[11px] sm:text-[16px]">
+                        <span className="text-green-800 mr-1">•</span>
+                        <span>{dept}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
           viewport={{ once: true }}
-          className={`bg-white rounded-lg shadow-md overflow-hidden 
+          className={`bg-transparent rounded-lg shadow-md overflow-hidden 
                `}
         >
-          <div className="pt-4 pr-4">
-            <Link to={"/syllabus"}>
+          <Link to={"/syllabus"}>
+            <div className="sm:py-4 sm:px-4 pr-2 pl-1 py-2.5">
               <h3 className="text-2xl text-green-950 font-[alibi] font-semibold">
                 Syllabus
               </h3>
-            </Link>
-            <hr className="text-green-800" />
-            <div className="bg-green-100 sm:w-[400px] rounded-lg border-2 sm:h-[400px] mt-3 text-nowrap w-[300px] h-[300px]">
-              <ul className="space-y-2 p-5">
-                {departments.map((dept, index) => (
-                  <li
-                    key={dept}
-                    className={`transform transition-all duration-300 ease-out ${
-                      index <= isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
-                  >
-                    <div className="hover:bg-green-200 rounded transition-colors font-semibold text-[11px] sm:text-[16px]">
-                      <span className="text-green-800 mr-1">•</span>
-                      <span>{dept}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <hr className="text-green-800" />
+              <div className="bg-green-100 sm:w-[400px] rounded-lg border-2 sm:h-[400px] mt-3 text-nowrap w-[300px] h-[300px]">
+                <ul className="space-y-2 p-5">
+                  {departments.map((dept, index) => (
+                    <li
+                      key={dept}
+                      className={`transform transition-all duration-300 ease-out ${
+                        index <= isVisible
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-10"
+                      }`}
+                    >
+                      <div className="hover:bg-green-200 rounded transition-colors font-semibold text-[11px] sm:text-[16px]">
+                        <span className="text-green-800 mr-1">•</span>
+                        <span>{dept}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </Link>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 2 }}
           viewport={{ once: true }}
-          className={`bg-white rounded-lg shadow-md overflow-hidden 
+          className={`bg-transparent rounded-lg shadow-md overflow-hidden 
                `}
         >
-          <div className="pt-4 pr-4">
-            <Link to={"/questionpaper"}>
+          <Link to={"/questionpaper"}>
+            <div className="sm:py-4 sm:px-4 pr-2 pl-1 py-2.5">
               <h3 className="text-2xl text-green-950 font-[alibi] font-semibold">
                 Question paper
               </h3>
-            </Link>
-            <hr className="text-green-800" />
-            <div className="bg-green-100 sm:w-[400px] rounded-lg border-2 sm:h-[400px] mt-3 text-nowrap w-[300px] h-[300px]">
-              <ul className="space-y-2 p-5">
-                {departments.map((dept, index) => (
-                  <li
-                    key={dept}
-                    className={`transform transition-all duration-300 ease-out ${
-                      index <= isVisible
-                        ? "opacity-100 translate-y-0"
-                        : "opacity-0 translate-y-10"
-                    }`}
-                  >
-                    <div className="hover:bg-green-200 rounded transition-colors font-semibold text-[11px] sm:text-[16px]">
-                      <span className="text-green-800 mr-1">•</span>
-                      <span>{dept}</span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+              <hr className="text-green-800" />
+              <div className="bg-green-100 sm:w-[400px] rounded-lg border-2 sm:h-[400px] mt-3 text-nowrap w-[300px] h-[300px]">
+                <ul className="space-y-2 p-5">
+                  {departments.map((dept, index) => (
+                    <li
+                      key={dept}
+                      className={`transform transition-all duration-300 ease-out ${
+                        index <= isVisible
+                          ? "opacity-100 translate-y-0"
+                          : "opacity-0 translate-y-10"
+                      }`}
+                    >
+                      <div className="hover:bg-green-200 rounded transition-colors font-semibold text-[11px] sm:text-[16px]">
+                        <span className="text-green-800 mr-1">•</span>
+                        <span>{dept}</span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
-          </div>
+          </Link>
         </motion.div>
       </div>
     </div>

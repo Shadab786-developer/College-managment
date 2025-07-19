@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaBook, FaDownload, FaEye, FaChevronDown } from "react-icons/fa";
+import {
+  FaBook,
+  FaDownload,
+  FaEye,
+  FaChevronDown,
+  FaFileUpload,
+} from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Notes = () => {
   // State variables for managing active questions and sections
@@ -9,6 +16,9 @@ const Notes = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
+  const isAdmin = localStorage.getItem("role");
+
+  const navigate = useNavigate();
   const handleDownload = async (pdfLink, fileName) => {
     setIsLoading(true);
     try {
@@ -30,6 +40,10 @@ const Notes = () => {
     } finally {
       setIsLoading(false);
     }
+  };
+
+  const handleUpload = () => {
+    navigate("/upload");
   };
 
   const handlePreview = (pdfLink, title) => {
@@ -241,99 +255,6 @@ const Notes = () => {
                 },
               ],
             },
-            // {
-            //   id: 2,
-            //   title: "Unit 2",
-            //   content: "Unit 2 content goes here",
-            //   unitNotes: [
-            //     {
-            //       id: 1,
-            //       title: "Unit 1 Notes",
-            //       description: "Introduction to RDBMS",
-            //       pdfLink: "/pdf/unit1-notes.pdf",
-            //     },
-            //     {
-            //       id: 2,
-            //       title: "Unit 2 Notes",
-            //       description: "SQL Fundamentals",
-            //       pdfLink: "/pdf/unit2-notes.pdf",
-            //     },
-            //     {
-            //       id: 3,
-            //       title: "Unit 3 Notes",
-            //       description: "Database Design",
-            //       pdfLink: "/pdf/unit3-notes.pdf",
-            //     },
-            //     {
-            //       id: 4,
-            //       title: "Unit 4 Notes",
-            //       description: "Advanced Topics",
-            //       pdfLink: "/pdf/unit4-notes.pdf",
-            //     },
-            //   ],
-            // },
-            // {
-            //   id: 3,
-            //   title: "Unit 3",
-            //   content: "Unit 3 content goes here",
-            //   unitNotes: [
-            //     {
-            //       id: 1,
-            //       title: "Unit 1 Notes",
-            //       description: "Introduction to RDBMS",
-            //       pdfLink: "/pdf/unit1-notes.pdf",
-            //     },
-            //     {
-            //       id: 2,
-            //       title: "Unit 2 Notes",
-            //       description: "SQL Fundamentals",
-            //       pdfLink: "/pdf/unit2-notes.pdf",
-            //     },
-            //     {
-            //       id: 3,
-            //       title: "Unit 3 Notes",
-            //       description: "Database Design",
-            //       pdfLink: "/pdf/unit3-notes.pdf",
-            //     },
-            //     {
-            //       id: 4,
-            //       title: "Unit 4 Notes",
-            //       description: "Advanced Topics",
-            //       pdfLink: "/pdf/unit4-notes.pdf",
-            //     },
-            //   ],
-            // },
-            // {
-            //   id: 4,
-            //   title: "Unit 4",
-            //   content: "Unit 4 content goes here",
-            //   unitNotes: [
-            //     {
-            //       id: 1,
-            //       title: "Unit 1 Notes",
-            //       description: "Introduction to RDBMS",
-            //       pdfLink: "/pdf/unit1-notes.pdf",
-            //     },
-            //     {
-            //       id: 2,
-            //       title: "Unit 2 Notes",
-            //       description: "SQL Fundamentals",
-            //       pdfLink: "/pdf/unit2-notes.pdf",
-            //     },
-            //     {
-            //       id: 3,
-            //       title: "Unit 3 Notes",
-            //       description: "Database Design",
-            //       pdfLink: "/pdf/unit3-notes.pdf",
-            //     },
-            //     {
-            //       id: 4,
-            //       title: "Unit 4 Notes",
-            //       description: "Advanced Topics",
-            //       pdfLink: "/pdf/unit4-notes.pdf",
-            //     },
-            //   ],
-            // },
           ],
         },
         {
@@ -371,99 +292,6 @@ const Notes = () => {
                 },
               ],
             },
-            // {
-            //   id: 2,
-            //   title: "Unit 2",
-            //   content: "Unit 2 content goes here",
-            //   unitNotes: [
-            //     {
-            //       id: 1,
-            //       title: "Unit 1 Notes",
-            //       description: "Introduction to RDBMS",
-            //       pdfLink: "/pdf/unit1-notes.pdf",
-            //     },
-            //     {
-            //       id: 2,
-            //       title: "Unit 2 Notes",
-            //       description: "SQL Fundamentals",
-            //       pdfLink: "/pdf/unit2-notes.pdf",
-            //     },
-            //     {
-            //       id: 3,
-            //       title: "Unit 3 Notes",
-            //       description: "Database Design",
-            //       pdfLink: "/pdf/unit3-notes.pdf",
-            //     },
-            //     {
-            //       id: 4,
-            //       title: "Unit 4 Notes",
-            //       description: "Advanced Topics",
-            //       pdfLink: "/pdf/unit4-notes.pdf",
-            //     },
-            //   ],
-            // },
-            // {
-            //   id: 3,
-            //   title: "Unit 3",
-            //   content: "Unit 3 content goes here",
-            //   unitNotes: [
-            //     {
-            //       id: 1,
-            //       title: "Unit 1 Notes",
-            //       description: "Introduction to RDBMS",
-            //       pdfLink: "/pdf/unit1-notes.pdf",
-            //     },
-            //     {
-            //       id: 2,
-            //       title: "Unit 2 Notes",
-            //       description: "SQL Fundamentals",
-            //       pdfLink: "/pdf/unit2-notes.pdf",
-            //     },
-            //     {
-            //       id: 3,
-            //       title: "Unit 3 Notes",
-            //       description: "Database Design",
-            //       pdfLink: "/pdf/unit3-notes.pdf",
-            //     },
-            //     {
-            //       id: 4,
-            //       title: "Unit 4 Notes",
-            //       description: "Advanced Topics",
-            //       pdfLink: "/pdf/unit4-notes.pdf",
-            //     },
-            //   ],
-            // },
-            // {
-            //   id: 4,
-            //   title: "Unit 4",
-            //   content: "Unit 4 content goes here",
-            //   unitNotes: [
-            //     {
-            //       id: 1,
-            //       title: "Unit 1 Notes",
-            //       description: "Introduction to RDBMS",
-            //       pdfLink: "/pdf/unit1-notes.pdf",
-            //     },
-            //     {
-            //       id: 2,
-            //       title: "Unit 2 Notes",
-            //       description: "SQL Fundamentals",
-            //       pdfLink: "/pdf/unit2-notes.pdf",
-            //     },
-            //     {
-            //       id: 3,
-            //       title: "Unit 3 Notes",
-            //       description: "Database Design",
-            //       pdfLink: "/pdf/unit3-notes.pdf",
-            //     },
-            //     {
-            //       id: 4,
-            //       title: "Unit 4 Notes",
-            //       description: "Advanced Topics",
-            //       pdfLink: "/pdf/unit4-notes.pdf",
-            //     },
-            //   ],
-            // },
           ],
         },
         {
@@ -532,68 +360,6 @@ const Notes = () => {
                 },
               ],
             },
-            // {
-            //   id: 3,
-            //   title: "Unit 3",
-            //   content: "Unit 3 content goes here",
-            //   unitNotes: [
-            //     {
-            //       id: 1,
-            //       title: "Unit 1 Notes",
-            //       description: "Introduction to RDBMS",
-            //       pdfLink: "/pdf/unit1-notes.pdf",
-            //     },
-            //     {
-            //       id: 2,
-            //       title: "Unit 2 Notes",
-            //       description: "SQL Fundamentals",
-            //       pdfLink: "/pdf/unit2-notes.pdf",
-            //     },
-            //     {
-            //       id: 3,
-            //       title: "Unit 3 Notes",
-            //       description: "Database Design",
-            //       pdfLink: "/pdf/unit3-notes.pdf",
-            //     },
-            //     {
-            //       id: 4,
-            //       title: "Unit 4 Notes",
-            //       description: "Advanced Topics",
-            //       pdfLink: "/pdf/unit4-notes.pdf",
-            //     },
-            //   ],
-            // },
-            // {
-            //   id: 4,
-            //   title: "Unit 4",
-            //   content: "Unit 4 content goes here",
-            //   unitNotes: [
-            //     {
-            //       id: 1,
-            //       title: "Unit 1 Notes",
-            //       description: "Introduction to RDBMS",
-            //       pdfLink: "/pdf/unit1-notes.pdf",
-            //     },
-            //     {
-            //       id: 2,
-            //       title: "Unit 2 Notes",
-            //       description: "SQL Fundamentals",
-            //       pdfLink: "/pdf/unit2-notes.pdf",
-            //     },
-            //     {
-            //       id: 3,
-            //       title: "Unit 3 Notes",
-            //       description: "Database Design",
-            //       pdfLink: "/pdf/unit3-notes.pdf",
-            //     },
-            //     {
-            //       id: 4,
-            //       title: "Unit 4 Notes",
-            //       description: "Advanced Topics",
-            //       pdfLink: "/pdf/unit4-notes.pdf",
-            //     },
-            //   ],
-            // },
           ],
         },
         {
@@ -1623,124 +1389,31 @@ const Notes = () => {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
+              title: "MSC-1",
+              content: "Calculas",
               unitNotes: [
                 {
                   id: 1,
                   title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
+                  description: "Sequence,Continuity & Differentiability",
                   pdfLink: "/pdf/unit1-notes.pdf",
                 },
                 {
                   id: 2,
                   title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
+                  description: "Expansion of Function",
                   pdfLink: "/pdf/unit2-notes.pdf",
                 },
                 {
                   id: 3,
                   title: "Unit 3 Notes",
-                  description: "Database Design",
+                  description: "Curvature,Asymptotes,Curve Tracing ",
                   pdfLink: "/pdf/unit3-notes.pdf",
                 },
                 {
                   id: 4,
                   title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
+                  description: "Integration & Its Application",
                   pdfLink: "/pdf/unit4-notes.pdf",
                 },
               ],
@@ -1753,124 +1426,32 @@ const Notes = () => {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
+              title: "MSC-2",
+              content: "Algebra",
               unitNotes: [
                 {
                   id: 1,
                   title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
+                  description: "Set Theory and Theory Of Equations",
                   pdfLink: "/pdf/unit1-notes.pdf",
                 },
                 {
                   id: 2,
                   title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
+                  description:
+                    "Groups,Subgroups,Normal Subgroup & Isomorphism Theorems",
                   pdfLink: "/pdf/unit2-notes.pdf",
                 },
                 {
                   id: 3,
                   title: "Unit 3 Notes",
-                  description: "Database Design",
+                  description: "Cyclic & Permutation Groups",
                   pdfLink: "/pdf/unit3-notes.pdf",
                 },
                 {
                   id: 4,
                   title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
+                  description: "Ring,Field & Integral Domain,Ideals & Modules",
                   pdfLink: "/pdf/unit4-notes.pdf",
                 },
               ],
@@ -1883,124 +1464,64 @@ const Notes = () => {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
+              title: "MSC-3",
+              content: "Differential Equations",
               unitNotes: [
                 {
                   id: 1,
                   title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
+                  description: "First & Second Order Differential Equations",
                   pdfLink: "/pdf/unit1-notes.pdf",
                 },
                 {
                   id: 2,
                   title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
+                  description:
+                    "Linear and Ordinary Simultaneous Differential Equations",
                   pdfLink: "/pdf/unit2-notes.pdf",
                 },
                 {
                   id: 3,
                   title: "Unit 3 Notes",
-                  description: "Database Design",
+                  description: "First Order Partial Differential Equations",
                   pdfLink: "/pdf/unit3-notes.pdf",
                 },
                 {
                   id: 4,
                   title: "Unit 4 Notes",
-                  description: "Advanced Topics",
+                  description:
+                    "Second and Higher Order Partial Differential Equations",
                   pdfLink: "/pdf/unit4-notes.pdf",
                 },
               ],
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
+              title: "MSE-3",
+              content: "Complex Analysis",
               unitNotes: [
                 {
                   id: 1,
                   title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
+                  description: "",
                   pdfLink: "/pdf/unit1-notes.pdf",
                 },
                 {
                   id: 2,
                   title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
+                  description: "",
                   pdfLink: "/pdf/unit2-notes.pdf",
                 },
                 {
                   id: 3,
                   title: "Unit 3 Notes",
-                  description: "Database Design",
+                  description: "",
                   pdfLink: "/pdf/unit3-notes.pdf",
                 },
                 {
                   id: 4,
                   title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
+                  description: "",
                   pdfLink: "/pdf/unit4-notes.pdf",
                 },
               ],
@@ -2013,124 +1534,62 @@ const Notes = () => {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
+              title: "MSC-4",
+              content: "Real Analysis",
               unitNotes: [
                 {
                   id: 1,
                   title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
+                  description: "Real Numbers",
                   pdfLink: "/pdf/unit1-notes.pdf",
                 },
                 {
                   id: 2,
                   title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
+                  description: "Convergence of Sequences in R",
                   pdfLink: "/pdf/unit2-notes.pdf",
                 },
                 {
                   id: 3,
                   title: "Unit 3 Notes",
-                  description: "Database Design",
+                  description: "Infinite Series",
                   pdfLink: "/pdf/unit3-notes.pdf",
                 },
                 {
                   id: 4,
                   title: "Unit 4 Notes",
-                  description: "Advanced Topics",
+                  description: "Riemann Integration & Improper Integral",
                   pdfLink: "/pdf/unit4-notes.pdf",
                 },
               ],
             },
             {
               id: 2,
-              title: "Unit 2",
-              content: "Unit 2 content goes here",
+              title: "MSE-2",
+              content: "Mechanics",
               unitNotes: [
                 {
                   id: 1,
                   title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
+                  description: "Statics",
                   pdfLink: "/pdf/unit1-notes.pdf",
                 },
                 {
                   id: 2,
                   title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
+                  description: "",
                   pdfLink: "/pdf/unit2-notes.pdf",
                 },
                 {
                   id: 3,
                   title: "Unit 3 Notes",
-                  description: "Database Design",
+                  description: "Dynamics",
                   pdfLink: "/pdf/unit3-notes.pdf",
                 },
                 {
                   id: 4,
                   title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 3,
-              title: "Unit 3",
-              content: "Unit 3 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
-                  pdfLink: "/pdf/unit4-notes.pdf",
-                },
-              ],
-            },
-            {
-              id: 4,
-              title: "Unit 4",
-              content: "Unit 4 content goes here",
-              unitNotes: [
-                {
-                  id: 1,
-                  title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
-                  pdfLink: "/pdf/unit1-notes.pdf",
-                },
-                {
-                  id: 2,
-                  title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
-                  pdfLink: "/pdf/unit2-notes.pdf",
-                },
-                {
-                  id: 3,
-                  title: "Unit 3 Notes",
-                  description: "Database Design",
-                  pdfLink: "/pdf/unit3-notes.pdf",
-                },
-                {
-                  id: 4,
-                  title: "Unit 4 Notes",
-                  description: "Advanced Topics",
+                  description: "",
                   pdfLink: "/pdf/unit4-notes.pdf",
                 },
               ],
@@ -2143,31 +1602,31 @@ const Notes = () => {
           units: [
             {
               id: 1,
-              title: "DSC",
-              content: "RDBMS",
+              title: "MSC-5",
+              content: "Linear Algebra",
               unitNotes: [
                 {
                   id: 1,
                   title: "Unit 1 Notes",
-                  description: "Introduction to RDBMS",
+                  description: "Vector Space & Subspace",
                   pdfLink: "/pdf/unit1-notes.pdf",
                 },
                 {
                   id: 2,
                   title: "Unit 2 Notes",
-                  description: "SQL Fundamentals",
+                  description: "Linear Transformation",
                   pdfLink: "/pdf/unit2-notes.pdf",
                 },
                 {
                   id: 3,
                   title: "Unit 3 Notes",
-                  description: "Database Design",
+                  description: "Eigen Values & Eigen Vectors",
                   pdfLink: "/pdf/unit3-notes.pdf",
                 },
                 {
                   id: 4,
                   title: "Unit 4 Notes",
-                  description: "Advanced Topics",
+                  description: "Inner Product Space",
                   pdfLink: "/pdf/unit4-notes.pdf",
                 },
               ],
@@ -8866,6 +8325,19 @@ const Notes = () => {
                                                 ? "Downloading..."
                                                 : "Download"}
                                             </button>
+                                            {isAdmin === "admin" ? (
+                                              <button
+                                                onClick={handleUpload}
+                                                className="flex items-center px-4 py-2 bg-teal-600 text-white rounded-lg hover:bg-teal-950 transition-colors"
+                                              >
+                                                <FaFileUpload className="mr-2" />
+                                                {isLoading
+                                                  ? "Uploading..."
+                                                  : "Upload"}
+                                              </button>
+                                            ) : (
+                                              ""
+                                            )}
                                           </div>
                                         </div>
                                       ))}
